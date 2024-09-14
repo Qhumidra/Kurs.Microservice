@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "SignIn";
+}
+@model Kurs.Web.Models.SignInInput
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Uye Girisi</h5>
+                <form asp-controller="Auth" asp-action="SignIn" method="post">
+                    <div class="mb-3">
+                        <label asp-for="Email" for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" value="f-cakiroglu@outlook.com" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" value="Password12*" asp-for="Password" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" asp-for="IsRemember" class="form-check-input" id="exampleCheck1">
+                        <label asp-for="IsRemember" class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <div class="mb-3">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Register">Kayit olmak icin tiklayin.</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

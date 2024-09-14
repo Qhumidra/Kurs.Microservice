@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+@model Kurs.Web.Models.RegisterInput
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kayit Ol</h5>
+                <form asp-controller="Auth" asp-action="Register" method="post">
+                    <div class="mb-3">
+                        <label asp-for="UserName" for="exampleInputUserName1" class="form-label">Kullanici adiniz</label>
+                        <input type="username" asp-for="UserName" class="form-control" id="exampleInputUserName1" />
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="City" for="exampleInputCity1" class="form-label">Sehir giriniz</label>
+                        <input asp-for="City" class="form-control" id="exampleInputCity1">
+                        <span class="text-danger" asp-validation-for="City"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

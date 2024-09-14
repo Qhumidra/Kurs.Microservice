@@ -1,0 +1,65 @@
+version: "3.8"
+services:
+  catalogdb:
+    image: mongo
+  basketdb:
+    image: redis
+  discountdb:
+    image: postgres
+  identitydb:
+    image: mcr.microsoft.com/mssql/server
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+  rabbitmq:
+    image: rabbitmq:3.8.14-management
+
+  catalog.api:
+    image: catalog_api_image
+    build: 
+      context: .
+      dockerfile: Services/Catalog/Kurs.Services.Catalog/Dockerfile
+  identityserver.api:
+    image: identityserver_api_image
+    build: 
+      context: .
+      dockerfile: IdentityServer/Kurs.IdentityServer/Dockerfile
+  basket.api:
+    image: basket_api_image
+    build: 
+      context: .
+      dockerfile: Services/Basket/Kurs.Services.Basket/Dockerfile
+  discount.api:
+    image: discount_api_image
+    build: 
+      context: .
+      dockerfile: Services/Discount/Kurs.Services.Discount/Dockerfile
+  photostock.api:
+    image: photostock_api_image
+    build: 
+      context: .
+      dockerfile: Services/PhotoStock/Kurs.Services.PhotoStock/Dockerfile    
+  fakepayment.api:
+    image: fakepayment_api_image
+    build: 
+      context: .
+      dockerfile: Services/FakePayment/Kurs.Services.FakePayment/Dockerfile
+  order.api:
+    image: order_api_image
+    build: 
+      context: .
+      dockerfile: Services/Order/Kurs.Services.Order.API/Dockerfile
+  gateway.api:
+    image: gateway_api_image
+    build: 
+      context: .
+      dockerfile: Gateways/Kurs.Gateway/Dockerfile
+  aspnetcoremvc.web:
+    image: aspnetcoremvc.web_image
+    build: 
+      context: .
+      dockerfile: Frontends/Kurs.Web/Dockerfile
+volumes:
+  catalogdb_volume:
+  discountdb_volume:
+  identitydb_volume:
+  orderdb_volume:
